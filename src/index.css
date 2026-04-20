@@ -1,0 +1,56 @@
+:root {
+  --font-sans: 'DM Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --color-page: #ebe4d8;
+  --color-page-mid: #f2ebe2;
+  --color-page-top: #faf7f2;
+  --color-text: #3a342c;
+  --color-text-muted: #6f665c;
+  --color-link: #6b5344;
+  --color-link-hover: #4a3a30;
+  --color-card: #fefdfb;
+  --color-card-border: #e8dfd4;
+  --color-input-bg: #fffcf8;
+  --color-input-border: #ddd2c4;
+  --color-accent: #7d6b5a;
+  --color-accent-hover: #635446;
+  --color-error: #a34d4d;
+  --shadow-soft: 0 4px 24px rgba(58, 52, 44, 0.08);
+  --shadow-card: 0 8px 32px rgba(58, 52, 44, 0.06);
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+
+  font-family: var(--font-sans);
+  line-height: 1.55;
+  font-weight: 400;
+  color: var(--color-text);
+  background-color: var(--color-page);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
