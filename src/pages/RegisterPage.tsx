@@ -16,6 +16,8 @@ export function RegisterPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -54,27 +56,51 @@ export function RegisterPage() {
           </label>
           <label>
             Password
-            <input
-              type="password"
-              autoComplete="new-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              minLength={8}
-              maxLength={128}
-            />
+            <div className="password-field">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                autoComplete="new-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                minLength={8}
+                maxLength={128}
+              />
+              <button
+                type="button"
+                className="password-toggle"
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                onClick={() => setShowPassword((prev) => !prev)}
+              >
+                {showPassword ? 'Hide' : 'Show'}
+              </button>
+            </div>
           </label>
           <label>
             Confirm password
-            <input
-              type="password"
-              autoComplete="new-password"
-              value={passwordConfirm}
-              onChange={(e) => setPasswordConfirm(e.target.value)}
-              required
-              minLength={8}
-              maxLength={128}
-            />
+            <div className="password-field">
+              <input
+                type={showPasswordConfirm ? 'text' : 'password'}
+                autoComplete="new-password"
+                value={passwordConfirm}
+                onChange={(e) => setPasswordConfirm(e.target.value)}
+                required
+                minLength={8}
+                maxLength={128}
+              />
+              <button
+                type="button"
+                className="password-toggle"
+                aria-label={
+                  showPasswordConfirm
+                    ? 'Hide confirm password'
+                    : 'Show confirm password'
+                }
+                onClick={() => setShowPasswordConfirm((prev) => !prev)}
+              >
+                {showPasswordConfirm ? 'Hide' : 'Show'}
+              </button>
+            </div>
           </label>
           {error && <p className="error">{error}</p>}
           <button type="submit" disabled={loading}>
