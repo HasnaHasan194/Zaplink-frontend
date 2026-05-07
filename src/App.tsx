@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { AppLayout } from './components/AppLayout';
 import { DashboardPage } from './pages/DashboardPage';
@@ -42,6 +43,7 @@ export default function App() {
       <AppLayout>
         <AppRoutes />
       </AppLayout>
+      <Toaster position="top-right" />
     </AuthProvider>
   );
 }

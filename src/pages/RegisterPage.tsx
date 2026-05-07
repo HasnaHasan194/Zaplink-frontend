@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import { formatApiMessage } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 
@@ -31,6 +32,7 @@ export function RegisterPage() {
     setLoading(true);
     try {
       await register(email, password, passwordConfirm);
+      toast.success('Registered successfully');
       navigate('/', { replace: true });
     } catch (err) {
       setError(formatApiMessage(err));

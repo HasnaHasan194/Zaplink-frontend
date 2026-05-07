@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import { formatApiMessage, ApiError } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 
@@ -25,6 +26,7 @@ export function LoginPage() {
     setLoading(true);
     try {
       await login(email, password);
+      toast.success('Logged in successfully');
       navigate('/', { replace: true });
     } catch (err) {
       setError(formatApiMessage(err));

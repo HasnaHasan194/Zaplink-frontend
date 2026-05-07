@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import type { FormEvent } from 'react';
+import toast from 'react-hot-toast';
 import { apiJson, formatApiMessage } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 
@@ -46,6 +47,7 @@ export function DashboardPage() {
         method: 'POST',
         body: JSON.stringify({ originalUrl }),
       });
+      toast.success('URL shortened successfully');
       setOriginalUrl('https://');
       await loadUrls();
     } catch (err) {
